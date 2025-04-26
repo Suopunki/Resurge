@@ -1,5 +1,6 @@
-import scala.util.{Either, Failure, Left, Right, Success, Try}
+package resurge
 
+import scala.util.{Either, Failure, Left, Right, Success, Try}
 
 /**
  * A type that represents either success ([[Ok]]) or failure ([[Err]]).
@@ -168,10 +169,8 @@ sealed trait Result[+T, +E]:
     case Ok(value) => Right(value)
     case Err(error) => Left(error)
 
-
 /** Companion object for the [[Result]] type. */
 object Result:
-
   /**
    * Converts a [[Try]] to a [[Result]].
    *
@@ -182,10 +181,8 @@ object Result:
     case Success(value) => Ok(value)
     case Failure(error) => Err(error)
 
-
 /**  A successful [[Result]] containing a value of type `T`. */
 case class Ok[+T](value: T) extends Result[T, Nothing]
-
 
 /** A failed [[Result]] containing an error value of type `E`. */
 case class Err[+E](error: E) extends Result[Nothing, E]

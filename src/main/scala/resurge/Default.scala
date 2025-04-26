@@ -1,3 +1,5 @@
+package resurge
+
 /** Type class representing types that can provide a default value. */
 trait Default[T]:
   /** The default value for a given type. */

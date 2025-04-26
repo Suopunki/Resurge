@@ -1,9 +1,10 @@
-import scala.util.{Failure, Success}
+package resurge
 
 import org.scalatest.funspec.AnyFunSpec
 
+import scala.util.{Failure, Success}
 
-class ResultSuite extends AnyFunSpec:
+class ResultTest extends AnyFunSpec:
   describe("Querying the variant"):
     it("Ok isOk should return true"):
       assert(Ok(42).isOk)

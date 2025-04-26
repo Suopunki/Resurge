@@ -1,11 +1,11 @@
-import scala.collection.{immutable, mutable}
+package resurge
 
 import org.scalatest.funspec.AnyFunSpec
+import resurge.DefaultInstances.given
 
-import DefaultInstances.given
+import scala.collection.{immutable, mutable}
 
-
-class DefaultInstancesSuite extends AnyFunSpec:
+class DefaultInstancesTest extends AnyFunSpec:
   describe("Default values of integer types"):
     it("Default[Byte] should be 0"):
       assert(summon[Default[Byte]].default == 0.toByte)

@@ -1,10 +1,10 @@
+package resurge
+
 import scala.collection.{immutable, mutable}
 import scala.reflect.ClassTag
 
-
 /** Implicit default values for many common data types. */
 object DefaultInstances:
-
   //
   // ----- Integer types: -----
   //
