@@ -5,9 +5,9 @@ import scala.reflect.ClassTag
 /** Implicit default values for many common data types. */
 object DefaultInstances:
 
-  /*****************
-   * Integer types *
-   *****************/
+  //
+  // ----- Integer types: -----
+  //
 
   given defaultByte: Default[Byte] with
     def default: Byte = 0
@@ -24,9 +24,9 @@ object DefaultInstances:
   given defaultBigInt: Default[BigInt] with
     def default: BigInt = 0
 
-  /*******************************
-   * Floating point number types *
-   *******************************/
+  //
+  // -----  Floating point number types: -----
+  //
 
   given defaultFloat: Default[Float] with
     def default: Float = 0.0
@@ -37,16 +37,16 @@ object DefaultInstances:
   given defaultBigDecimal: Default[BigDecimal] with
     def default: BigDecimal = 0.0
 
-  /***********
-   * Boolean *
-   ***********/
+  //
+  // ----- Boolean: -----
+  //
 
   given defaultBoolean: Default[Boolean] with
     def default: Boolean = false
 
-  /**************************
-   * Characters and strings *
-   **************************/
+  //
+  // ----- Characters and strings: -----
+  //
 
   given defaultChar: Default[Char] with
     def default: Char = '\u0000'
@@ -54,9 +54,9 @@ object DefaultInstances:
   given defaultString: Default[String] with
     def default: String = ""
 
-  /********************
-   * Collection types *
-   ********************/
+  //
+  // ----- Collection types: -----
+  //
 
   given defaultOption[T]: Default[Option[T]] with
     def default: Option[T] = None

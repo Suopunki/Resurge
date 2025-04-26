@@ -126,13 +126,13 @@ class ResultSuite extends AnyFunSpec:
       assert(Ok(42).fold((x: Int) => x * 2, (_: String) => 0) == 84)
 
     it("Ok withFilter should return Ok when predicate matches"):
-      assert(Ok(42).withFilter(_ > 40) == Ok(42))
+      assert(Ok(42).withFilter(_ > 40)(()) == Ok(42))
 
     it("Err withFilter should return Err"):
-      assert(Err("Error").withFilter(_ => true) == Err("Error"))
+      assert(Err("Error").withFilter(_ => true)(()) == Err("Error"))
 
     it("Ok with failed predicate should return Err"):
-      assert(Ok(42).withFilter(_ < 40) == Err("Predicate failed"))
+      assert(Ok(42).withFilter(_ < 40)("Predicate failed") == Err("Predicate failed"))
 
   describe("Conversion to"):
     it("Ok should correctly convert to Option"):

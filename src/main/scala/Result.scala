@@ -8,10 +8,9 @@ import scala.util.{Either, Failure, Left, Right, Success, Try}
  * Often used for fallible computations where exceptions are avoided.
  */
 sealed trait Result[+T, +E]:
-
-  /************************
-   * Querying the variant *
-   ************************/
+  //
+  // ----- Querying the variant: -----
+  //
 
   /** Returns true if this is an [[Ok]] value. */
   def isOk: Boolean = this match
@@ -39,9 +38,9 @@ sealed trait Result[+T, +E]:
     case Err(error) => f(error)
     case _ => false
 
-  /*******************************
-   * Extracting contained values *
-   *******************************/
+  //
+  // ----- Extracting contained values: -----
+  //
 
   /**
    * Unwraps the value if this is [[Ok]], or throws an exception with the provided message if this is [[Err]].
@@ -94,9 +93,9 @@ sealed trait Result[+T, +E]:
     case Ok(value) => value
     case Err(error) => f(error)
 
-  /*********************************
-   * Transforming contained values *
-   *********************************/
+  //
+  // ----- Transforming contained values: -----
+  //
 
   /** Maps the [[Ok]] value using the provided function. */
   def map[U](f: T => U): Result[U, E] = this match
@@ -142,14 +141,14 @@ sealed trait Result[+T, +E]:
    *
    * If the predicate fails, returns a default error.
    */
-  def withFilter(p: T => Boolean): Result[T, E] = this match
+  def withFilter[EE >: E](p: T => Boolean)(orElse: => EE): Result[T, EE] = this match
     case Ok(value) if p(value) => this
-    case Ok(_) => Err("Predicate failed").asInstanceOf[Result[T, E]]
+    case Ok(_) => Err(orElse)
     case e @ Err(_) => e
 
-  /*******************************
-   * Conversion to similar types *
-   *******************************/
+  //
+  // ----- Conversion to similar types: -----
+  //
 
   /**
    * Converts this to [[Option]].
