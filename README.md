@@ -286,9 +286,6 @@ import scala.util.{Failure, Success, Try}
 import resurge.*
 
 @main def example(): Unit =
-  val successResult = Ok(42)
-  val failureResult = Err("Something went wrong")
-  
   // fromTry[T](t: Try[T]): Result[T, Throwable]
   val successTry = Success(10)
   val failureTry = Failure(new RuntimeException("Boom!"))
