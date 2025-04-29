@@ -16,7 +16,7 @@ However, it can be built and published locally for personal or internal use.
 - [Installation](#installation)
   - [Cloning this repository](#1-clone-this-repository)
   - [Publishing to your local repository](#2-publish-to-your-local-repository)
-  - [Adding the dependency](#3-add-the-dependency-to-your-buildsbt)
+  - [Adding the dependency](#3-add-the-dependency-to-your-buildsbt-file)
 - [Usage](#usage)
   - [Result instance methods](#result-instance-methods)
     - [Querying the variant](#querying-the-variant)
